@@ -1,0 +1,264 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    background: transparent !important;
+    font-family: "Poppins", sans-serif;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Scrollbar kapalı */
+*::-webkit-scrollbar {
+    display: none;
+}
+
+#shop-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: none !important;
+}
+
+/* ALT MENÜ */
+.bottom-menu {
+    position: absolute;
+    bottom: 20px;
+    left: 30px;
+    width: 70%;
+    pointer-events: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* KATEGORİLER */
+.category-list {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-bottom: 12px;
+    padding: 12px 14px;
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+    border-radius: 16px;
+    background: rgba(20, 20, 20, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 12px rgba(0,0,0,0.35);
+}
+
+.category-list::-webkit-scrollbar {
+    display: none;
+}
+
+.category-item {
+    padding: 8px 18px;
+    background: rgba(30, 30, 30, 0.50);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 10px;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.25s ease;
+    user-select: none;
+    display: inline-block; /* Yatay scroll için doğru */
+}
+
+.category-item:hover {
+    background: rgba(40, 40, 40, 0.65);
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 0 14px rgba(255,255,255,0.10);
+}
+
+/* ARAÇ LİSTESİ */
+.vehicle-list {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 15px;
+    border-radius: 18px;
+    background: rgba(20, 20, 20, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 12px rgba(0,0,0,0.35);
+}
+
+/* ARAÇ KARTI */
+.vehicle-item {
+    min-width: 140px;
+    padding: 12px;
+    border-radius: 14px;
+    background: rgba(30, 30, 30, 0.50);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    box-shadow: 0 0 10px rgba(0,0,0,0.25);
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.vehicle-item:hover {
+    background: rgba(40, 40, 40, 0.65);
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 0 16px rgba(255,255,255,0.10);
+}
+
+
+/* ARAÇ FOTO */
+.vehicle-img {
+    width: 120px;
+    height: 75px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+
+/* SAĞ PANEL */
+.right-panel {
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 300px;
+    padding: 25px;
+    pointer-events: auto;
+    background: rgba(20, 20, 20, 0.45); 
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.45);
+    color: white;
+}
+
+
+/* Panel Fade Animasyonu */
+@keyframes fadeInPanel {
+    from { opacity: 0; transform: translateY(-45%); }
+    to { opacity: 1; transform: translateY(-50%); }
+}
+
+
+/* Başlık */
+.right-panel h2 {
+    margin: 0;
+    margin-bottom: 6px;
+    font-size: 22px;
+    font-family: "Bebas Neue", cursive;
+    font-weight: 600;
+    letter-spacing: .5px;
+}
+
+/* Kategori */
+.right-panel p {
+    font-size: 14px;
+    opacity: .8;
+    margin: 0 0 15px 0;
+}
+
+
+/* Fiyat Kutusu */
+.price-box {
+    margin-top: 15px;
+    padding: 15px;
+    background: rgba(255,255,255,0.12);
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.20);
+    text-align: center;
+    font-size: 26px;
+    font-weight: 600;
+    box-shadow: inset 0 0 12px rgba(255,255,255,0.1);
+}
+
+
+/* Butonlar */
+.button-row {
+    display: flex;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+/* Genel Buton Tasarımı */
+.btn {
+    flex: 1;
+    padding: 12px;
+    font-family: "Bebas Neue", cursive;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    transition: 0.25s;
+}
+
+
+/* Satın Al Butonu */
+.buy {
+    background: rgba(20, 209, 122, 0.85);
+    box-shadow: 0 3px 12px rgba(20, 209, 122, 0.35);
+}
+.buy:hover {
+    background: rgba(20, 209, 122, 1);
+    transform: translateY(-2px);
+}
+
+.test {
+    background: rgba(6, 148, 214, 0.85);
+    box-shadow: 0 3px 12px rgba(6, 148, 214, 0.35);
+}
+.test:hover {
+    background: rgb(20, 133, 209);
+    transform: translateY(-2px);
+}
+
+/* İptal Butonu */
+.cancel {
+    background: rgba(209, 52, 52, 0.85);
+    box-shadow: 0 3px 12px rgba(209, 52, 52, 0.35);
+}
+.cancel:hover {
+    background: rgba(209, 52, 52, 1);
+    transform: translateY(-2px);
+}
+
+.stats-box {
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+}
+
+.stats-box h3 {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: .85;
+}
+
+.stat-row {
+    margin-bottom: 10px;
+}
+
+.stat-row span {
+    font-size: 13px;
+    opacity: .75;
+}
+
+.stat-bar {
+    margin-top: 4px;
+    width: 100%;
+    height: 6px;
+    background: rgba(255,255,255,0.10);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.stat-bar div {
+    height: 100%;
+    background: linear-gradient(90deg, #14d17a, #0fa15d);
+    width: 0%;
+    transition: width .3s ease;
+}

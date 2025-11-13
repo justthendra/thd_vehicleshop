@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="shop-container" class="hidden">
+      <!-- ALT MENÜ -->
+      <div class="bottom-menu">
+        <div id="category-list" class="category-list"></div>
+        <div id="vehicle-list" class="vehicle-list"></div>
+      </div>
+
+      <!-- SAĞ PANEL -->
+      <div class="right-panel">
+        <h2 id="vehicle-name">Araç seç</h2>
+        <p id="vehicle-category"></p>
+
+        <div class="price-box">
+          <span id="vehicle-price">$0</span>
+        </div>
+
+        <div class="stats-box">
+          <h3>Performans</h3>
+
+          <div class="stat-row">
+            <span>Hız</span>
+            <div class="stat-bar"><div id="stat-speed"></div></div>
+          </div>
+
+          <div class="stat-row">
+            <span>Hızlanma</span>
+            <div class="stat-bar"><div id="stat-accel"></div></div>
+          </div>
+
+          <div class="stat-row">
+            <span>Fren</span>
+            <div class="stat-bar"><div id="stat-brakes"></div></div>
+          </div>
+
+          <div class="stat-row">
+            <span>Tutuş</span>
+            <div class="stat-bar"><div id="stat-handling"></div></div>
+          </div>
+        </div>
+
+        <div class="button-row">
+          <button class="btn test" id="test-btn">Test Sürüşü</button>
+          <button class="btn buy" id="buy-btn">Satın al</button>
+          <button class="btn cancel" id="cancel-btn">İptal</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
