@@ -44,9 +44,9 @@ It includes: - Dynamic vehicle preview system\
 
 ## Requirements
 
--   QB-Core Framework
--   oxmysql
+-   [QB-Core Framework](https://github.com/qbcore-framework)
+-   [oxmysql](https://github.com/overextended/oxmysql)
 
 ## Support
 
-[For help or improvements, COME MY DC SERVER!](https://discord.gg/JWx8qJ7B8W)
+[You can come to my discord server for help.](https://discord.gg/JWx8qJ7B8W)
