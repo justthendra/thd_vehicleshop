@@ -49,4 +49,4 @@ It includes: - Dynamic vehicle preview system\
 
 ## Support
 
-For help or improvements, feel free to reach out!
+[For help or improvements, COME MY DC SERVER!](https://discord.gg/JWx8qJ7B8W)
