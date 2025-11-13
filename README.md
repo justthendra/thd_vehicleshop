@@ -46,7 +46,6 @@ It includes: - Dynamic vehicle preview system\
 
 -   QB-Core Framework
 -   oxmysql
--   FiveM artifacts supporting NUI & Lua 5.4
 
 ## Support
 
