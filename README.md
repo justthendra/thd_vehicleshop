@@ -40,7 +40,7 @@ It includes: - Dynamic vehicle preview system\
 
 ## Image Showcase
 
-![Showcase](https://i.imgur.com/kW7YORF.png)
+![Showcase](https://i.imgur.com/ZUP4E5B.png)
 
 ## Requirements
 
