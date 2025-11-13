@@ -1,7 +1,5 @@
 # thd_vehicleshop
 
-![Your Image Here](PATH_TO_IMAGE_PLACEHOLDER)
-
 ## Overview
 
 thd_vehicleshop is a fully featured QB-Core compatible vehicle shop for
@@ -44,7 +42,7 @@ It includes: - Dynamic vehicle preview system\
 
 (Add your image by replacing the placeholder path)
 
-![Showcase](PATH_TO_IMAGE_PLACEHOLDER)
+![Showcase](https://i.imgur.com/kW7YORF.png)
 
 ## Requirements
 
