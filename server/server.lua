@@ -67,7 +67,7 @@ RegisterNetEvent("thd_vehicleshop:buyVehicle", function(model, price)
         }
 
         MySQL.insert(
-            'INSERT INTO thd_garages (license, citizenid, plate, model, fuel, engine, body, x, y, z, w, stored, state) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+            'INSERT INTO player_vehicles (license, citizenid, plate, model, fuel, engine, body, x, y, z, w, state) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
             { 
                 license, 
                 cid, 
@@ -79,8 +79,7 @@ RegisterNetEvent("thd_vehicleshop:buyVehicle", function(model, price)
                 spawn.x, 
                 spawn.y, 
                 spawn.z, 
-                spawn.w, 
-                0,       -- stored = 0 (dışarıda)
+                spawn.w,
                 "out" 
             }
         )
@@ -122,3 +121,4 @@ RegisterNetEvent("thd_garages:checkKey", function(plate)
         TriggerClientEvent("thd_garages:forceOut", src)
     end
 end)
+
