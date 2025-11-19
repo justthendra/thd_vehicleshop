@@ -5,7 +5,7 @@ RegisterNetEvent("thd_vehicleshop:setBucket", function(bucket)
     SetPlayerRoutingBucket(source, bucket)
 end)
 
--- Araç listesi çekme
+-- Request vehicle list
 RegisterNetEvent("thd_vehicleshop:requestVehicles", function()
     local src = source
     local vehicles, categories = {}, {}
@@ -30,7 +30,7 @@ RegisterNetEvent("thd_vehicleshop:requestVehicles", function()
     TriggerClientEvent("thd_vehicleshop:openMenu", src, vehicles, catList)
 end)
 
--- Kategori filtresi
+-- Category Filter
 RegisterNetEvent("thd_vehicleshop:requestCategory", function(category)
     local src = source
     local list = {}
@@ -49,7 +49,7 @@ RegisterNetEvent("thd_vehicleshop:requestCategory", function(category)
     TriggerClientEvent("thd_vehicleshop:updateVehicles", src, list)
 end)
 
--- Araç satın alma
+-- Buy Vehicle
 RegisterNetEvent("thd_vehicleshop:buyVehicle", function(model, price)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
@@ -84,7 +84,7 @@ RegisterNetEvent("thd_vehicleshop:buyVehicle", function(model, price)
             }
         )
 
-        -- 🔑 Aracın anahtarını oyuncuya ver
+        -- 🔑 Given car key player
         Player.Functions.AddItem("vehicle_key", 1, false, {
             plate = plate,
             model = model,
@@ -121,4 +121,5 @@ RegisterNetEvent("thd_garages:checkKey", function(plate)
         TriggerClientEvent("thd_garages:forceOut", src)
     end
 end)
+
 
