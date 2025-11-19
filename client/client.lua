@@ -10,10 +10,9 @@ local testVehicle = nil
 local testTime = 60
 local lastMenuPos = nil
 
--- Menü açma noktası (galeri)
+
 local menuCoords = vector3(-33.97, -1103.23, 26.42)
 
--- Araç göstermelik spawn noktası (Diamond Garage)
 local vehiclePos = vector4(1379.95, 223.39, -48.99, 223.8)
 
 
@@ -77,7 +76,7 @@ function SpawnPreviewVehicle(model)
 
             SetupPreviewCam()
         end,
-        temp, -- spawn geçici
+        temp,
         true
     )
 end
@@ -116,30 +115,25 @@ function StopCam()
 end
 
 function StartShowroomCamera()
-    -- Araç spawn noktası
+
     local vx, vy, vz, vh = vehiclePos.x, vehiclePos.y, vehiclePos.z, vehiclePos.w
 
-    -- Kameranın araç etrafındaki konumu (sol arka üstten)
-    -- İstersen bu değerlerle oynayabiliriz
+
     local camX = vx - 4.5
     local camY = vy + 3.0
     local camZ = vz + 2.0
 
-    -- Eski kamera varsa sil
     if previewCam then
         RenderScriptCams(false, false, 0, true, true)
         DestroyCam(previewCam)
         previewCam = nil
     end
 
-    -- Yeni kamera oluştur
     previewCam = CreateCam("DEFAULT_SCRIPTED_CAMERA", true)
     SetCamCoord(previewCam, camX, camY, camZ)
 
-    -- Kamerayı aracın tam merkezine döndür
     PointCamAtCoord(previewCam, vx, vy, vz + 1.0)
 
-    -- Kamerayı aktif et
     SetCamActive(previewCam, true)
     RenderScriptCams(true, true, 600, true, true)
 end
@@ -147,7 +141,7 @@ end
 
 
 --------------------------------------------------------------------
--- MENÜ AÇMA
+-- OPEN MENU 
 ---------------------------------------------------------------------
 CreateThread(function()
     while true do
@@ -176,7 +170,7 @@ CreateThread(function()
 end)
 
 ----------------------------------------------------------------
--- MENÜ AÇ
+-- OPEN MENU (UI)
 ----------------------------------------------------------------
 RegisterNetEvent("thd_vehicleshop:openMenu", function(vehicles, categories)
     lastMenuPos = GetEntityCoords(PlayerPedId())
@@ -187,7 +181,6 @@ RegisterNetEvent("thd_vehicleshop:openMenu", function(vehicles, categories)
     SetNuiFocus(true,true)
     TriggerServerEvent("thd_vehicleshop:setBucket", 901)
 
-    -- 2) Interior yükle
     LoadGarageInterior()
 
     StartShowroomCamera()
@@ -206,7 +199,6 @@ end)
 RegisterNUICallback("selectVehicle", function(data, cb)
     SpawnPreviewVehicle(data.model)
 
-    -- Araç statlarını al
     local stats = VehicleStats[data.model] or {
         max_speed = 0,
         acceleration = 0,
@@ -247,7 +239,6 @@ RegisterNUICallback("closeShop", function(_,cb)
     isOpen = false
     SetNuiFocus(false,false)
 
-    TriggerEvent("thd_hud:toggle", true)
 
     StopCam()
 
@@ -261,28 +252,28 @@ RegisterNUICallback("closeShop", function(_,cb)
     cb("ok")
 end)
 
+----------------------------------------------------------------
+-- TEST DRIVE
+----------------------------------------------------------------
+
 RegisterNUICallback("testDrive", function(data, cb)
     TriggerEvent("thd_vehicleshop:startTestDrive", data.model)
     cb("ok")
 end)
 
--- TEST DRIVE
 RegisterNetEvent("thd_vehicleshop:startTestDrive", function(model)
     if isTesting then return end
     isTesting = true
 
-    TriggerEvent("thd_hud:toggle", true)
 
     local ped = PlayerPedId()
     local startPos = lastMenuPos or menuCoords
 
-    -- MENÜYÜ KAPAT
     SendNUIMessage({ action = "closeShop" })
     
     SetNuiFocus(false,false)
     StopCam()
 
-    -- ARACI WORLD’E BAS
     QBCore.Functions.SpawnVehicle(model, function(veh)
         testVehicle = veh
 
@@ -294,7 +285,6 @@ RegisterNetEvent("thd_vehicleshop:startTestDrive", function(model)
 
         QBCore.Functions.Notify("Test sürüşü başladı! Süre: "..testTime.." saniye", "primary")
 
-        -- Geri sayım
         CreateThread(function()
             local remaining = testTime
 
@@ -306,7 +296,6 @@ RegisterNetEvent("thd_vehicleshop:startTestDrive", function(model)
                 end
             end
 
-            -- BİTTİ
             if isTesting then
                 isTesting = false
 
@@ -314,11 +303,9 @@ RegisterNetEvent("thd_vehicleshop:startTestDrive", function(model)
                     DeleteVehicle(testVehicle)
                 end
 
-                -- OYUNCUYU GERİ IŞINLA
                 SetEntityCoords(ped, startPos.x, startPos.y, startPos.z)
                 Wait(300)
 
-                -- MENÜYÜ TEKRAR AÇ
                 TriggerServerEvent("thd_vehicleshop:requestVehicles")
                 QBCore.Functions.Notify("Test sürüşü sona erdi!", "error")
             end
@@ -330,7 +317,6 @@ RegisterNetEvent("thd_vehicleshop:closeMenuAuto", function()
 
     SendNUIMessage({ action = "closeShop" })
     SetNuiFocus(false, false)
-    TriggerEvent("thd_hud:toggle", true)
 
     StopCam()
 
@@ -359,9 +345,6 @@ RegisterNetEvent("thd_vehicleshop:spawnPurchasedVehicle", function(model, plate,
 end)
 
 
-
-
--- 🔐 Araç giriş koruma
 CreateThread(function()
     while true do
         Wait(250)
@@ -372,7 +355,6 @@ CreateThread(function()
         if veh ~= 0 then
             local plate = QBCore.Functions.GetPlate(veh)
 
-            -- Sunucudan kontrol iste
             TriggerServerEvent("thd_garages:checkKey", plate)
         end
     end
@@ -386,4 +368,5 @@ end)
 
 RegisterNetEvent("thd_vehicleshop:loadStats", function(stats)
     VehicleStats = stats
+
 end)
