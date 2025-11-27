@@ -331,6 +331,7 @@ end)
 RegisterNetEvent("thd_vehicleshop:spawnPurchasedVehicle", function(model, plate, spawn)
     QBCore.Functions.SpawnVehicle(model, function(veh)
         SetVehicleNumberPlateText(veh, plate)
+        TriggerServerEvent("thd_garages:server:RegisterVehicleEntity", plate, NetworkGetNetworkIdFromEntity(veh))
         SetEntityCoords(veh, spawn.x, spawn.y, spawn.z)
         SetEntityHeading(veh, spawn.w)
 
@@ -370,3 +371,4 @@ RegisterNetEvent("thd_vehicleshop:loadStats", function(stats)
     VehicleStats = stats
 
 end)
+
