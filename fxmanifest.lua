@@ -15,13 +15,13 @@ files {
 
 shared_scripts {
     '@qb-core/shared/locale.lua',
-    '@oxmysql/lib/MySQL.lua',
+    'config.lua',
 }
 
 server_scripts {
     '@oxmysql/lib/MySQL.lua',
     'server/server.lua',
-    'server/statloader.lua'
+    'server/statloader.lua',
 }
 
 client_scripts {

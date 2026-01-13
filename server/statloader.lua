@@ -1,5 +1,6 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 
+-- ⭐ Artık VehicleStats burada tanımlı
 VehicleStats = {}
 
 local function generateStat(min, max)
@@ -81,4 +82,3 @@ CreateThread(function()
     print("[thd_vehicleshop] Tüm araç statları yüklendi!")
     TriggerClientEvent("thd_vehicleshop:loadStats", -1, VehicleStats)
 end)
-

@@ -27,27 +27,29 @@ body, html {
     position: absolute;
     bottom: 20px;
     left: 30px;
-    width: 70%;
+    right: 30px;
     pointer-events: auto;
     display: flex;
     flex-direction: column;
 }
 
+
 /* KATEGORİLER */
 .category-list {
-    display: flex;
+    display: inline-flex;
     flex-direction: row;
     gap: 10px;
-    margin-bottom: 12px;
-    padding: 12px 14px;
-    width: 100%;
     overflow-x: auto;
     white-space: nowrap;
-    scrollbar-width: none;
+    padding: 12px 14px;
+    padding-right: 30px;
+    margin-bottom: 15px;
     border-radius: 16px;
     background: rgba(20, 20, 20, 0.45);
     border: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow: 0 0 12px rgba(0,0,0,0.35);
+    width: auto;
+    max-width: 100%;
 }
 
 .category-list::-webkit-scrollbar {
@@ -64,7 +66,7 @@ body, html {
     cursor: pointer;
     transition: 0.25s ease;
     user-select: none;
-    display: inline-block; /* Yatay scroll için doğru */
+    display: inline-block;
 }
 
 .category-item:hover {
@@ -75,23 +77,29 @@ body, html {
 
 /* ARAÇ LİSTESİ */
 .vehicle-list {
-    display: flex;
+    display: inline-flex;
     flex-direction: row;
     gap: 15px;
     overflow-x: auto;
     white-space: nowrap;
     padding: 15px;
+    padding-right: 30px;
     border-radius: 18px;
     background: rgba(20, 20, 20, 0.45);
     border: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow: 0 0 12px rgba(0,0,0,0.35);
+    width: auto;
+    max-width: 100%; 
 }
+
 
 /* ARAÇ KARTI */
 .vehicle-item {
-    min-width: 140px;
     padding: 12px;
     border-radius: 14px;
+    min-width: unset !important;
+    width: auto;
+    max-width: none;
     background: rgba(30, 30, 30, 0.50);
     border: 1px solid rgba(255, 255, 255, 0.10);
     box-shadow: 0 0 10px rgba(0,0,0,0.25);
@@ -107,7 +115,6 @@ body, html {
     box-shadow: 0 0 16px rgba(255,255,255,0.10);
 }
 
-
 /* ARAÇ FOTO */
 .vehicle-img {
     width: 120px;
@@ -115,7 +122,6 @@ body, html {
     object-fit: cover;
     border-radius: 8px;
 }
-
 
 /* SAĞ PANEL */
 .right-panel {
@@ -132,14 +138,6 @@ body, html {
     box-shadow: 0 0 12px rgba(0, 0, 0, 0.45);
     color: white;
 }
-
-
-/* Panel Fade Animasyonu */
-@keyframes fadeInPanel {
-    from { opacity: 0; transform: translateY(-45%); }
-    to { opacity: 1; transform: translateY(-50%); }
-}
-
 
 /* Başlık */
 .right-panel h2 {
@@ -158,7 +156,6 @@ body, html {
     margin: 0 0 15px 0;
 }
 
-
 /* Fiyat Kutusu */
 .price-box {
     margin-top: 15px;
@@ -172,7 +169,6 @@ body, html {
     box-shadow: inset 0 0 12px rgba(255,255,255,0.1);
 }
 
-
 /* Butonlar */
 .button-row {
     display: flex;
@@ -180,7 +176,6 @@ body, html {
     margin-top: 25px;
 }
 
-/* Genel Buton Tasarımı */
 .btn {
     flex: 1;
     padding: 12px;
@@ -194,8 +189,7 @@ body, html {
     transition: 0.25s;
 }
 
-
-/* Satın Al Butonu */
+/* Satın Al */
 .buy {
     background: rgba(20, 209, 122, 0.85);
     box-shadow: 0 3px 12px rgba(20, 209, 122, 0.35);
@@ -205,6 +199,7 @@ body, html {
     transform: translateY(-2px);
 }
 
+/* Test Drive */
 .test {
     background: rgba(6, 148, 214, 0.85);
     box-shadow: 0 3px 12px rgba(6, 148, 214, 0.35);
@@ -214,7 +209,7 @@ body, html {
     transform: translateY(-2px);
 }
 
-/* İptal Butonu */
+/* İptal */
 .cancel {
     background: rgba(209, 52, 52, 0.85);
     box-shadow: 0 3px 12px rgba(209, 52, 52, 0.35);

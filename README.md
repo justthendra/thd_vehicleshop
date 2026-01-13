@@ -1,5 +1,7 @@
 # thd_vehicleshop
 
+![Your Image Here](PATH_TO_IMAGE_PLACEHOLDER)
+
 ## Overview
 
 thd_vehicleshop is a fully featured QB-Core compatible vehicle shop for
@@ -40,13 +42,16 @@ It includes: - Dynamic vehicle preview system\
 
 ## Image Showcase
 
-![Showcase](https://i.imgur.com/ZUP4E5B.png)
+(Add your image by replacing the placeholder path)
+
+![Showcase](PATH_TO_IMAGE_PLACEHOLDER)
 
 ## Requirements
 
--   [QB-Core Framework](https://github.com/qbcore-framework)
--   [oxmysql](https://github.com/overextended/oxmysql)
+-   QB-Core Framework
+-   oxmysql
+-   FiveM artifacts supporting NUI & Lua 5.4
 
 ## Support
 
-[You can come to my discord server for help.](https://discord.gg/JWx8qJ7B8W)
+For help or improvements, feel free to reach out!
